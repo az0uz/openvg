@@ -81,7 +81,7 @@ void oglinit(STATE_T * state) {
 	VC_RECT_T dst_rect;
 	VC_RECT_T src_rect;
 	static VC_DISPMANX_ALPHA_T alpha = {
-		DISPMANX_FLAGS_ALPHA_FIXED_ALL_PIXELS,
+		DISPMANX_FLAGS_ALPHA_FROM_SOURCE,
 		255, 0
 	};
 
@@ -132,7 +132,7 @@ void oglinit(STATE_T * state) {
 	dispman_display = vc_dispmanx_display_open(0 /* LCD */ );
 	dispman_update = vc_dispmanx_update_start(0);
 
-	dispman_element = vc_dispmanx_element_add(dispman_update, dispman_display, 0 /*layer */ , &dst_rect, 0 /*src */ ,
+	dispman_element = vc_dispmanx_element_add(dispman_update, dispman_display, 1 /*layer */ , &dst_rect, 0 /*src */ ,
 						  &src_rect, DISPMANX_PROTECTION_NONE, &alpha, 0 /*clamp */ ,
 						  0 /*transform */ );
 
