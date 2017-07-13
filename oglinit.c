@@ -68,7 +68,7 @@ static void setWindowParams(STATE_T * state, int x, int y, VC_RECT_T * src_rect,
 
 // oglinit sets the display, OpenVGL context and screen information
 // state holds the display information
-void oglinit(STATE_T * state) {
+void oglinit(STATE_T * state, uint16_t layer) {
 	int32_t success = 0;
 	EGLBoolean result;
 	EGLint num_config;
@@ -132,7 +132,7 @@ void oglinit(STATE_T * state) {
 	dispman_display = vc_dispmanx_display_open(0 /* LCD */ );
 	dispman_update = vc_dispmanx_update_start(0);
 
-	dispman_element = vc_dispmanx_element_add(dispman_update, dispman_display, 1 /*layer */ , &dst_rect, 0 /*src */ ,
+	dispman_element = vc_dispmanx_element_add(dispman_update, dispman_display, layer /*layer */ , &dst_rect, 0 /*src */ ,
 						  &src_rect, DISPMANX_PROTECTION_NONE, &alpha, 0 /*clamp */ ,
 						  0 /*transform */ );
 

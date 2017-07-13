@@ -17,6 +17,6 @@ typedef struct {
 	EGLContext context;
 } STATE_T;
 
-extern void oglinit(STATE_T *);
+extern void oglinit(STATE_T *, uint16_t);
 extern void dispmanMoveWindow(STATE_T *, int, int);
 extern void dispmanChangeWindowOpacity(STATE_T *, unsigned int);
